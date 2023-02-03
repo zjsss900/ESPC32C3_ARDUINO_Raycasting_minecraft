@@ -92,7 +92,7 @@ void DRAW_WEAPONS_TO_SCREEN(int typeOfWeapon);
 
 bool CHECK_MAP_SIDE();
 
-void PLAY_JNTM(int8_t MapX, int8_t MapY);
+void PLAY_JNTM();
 
 void PLAY_BADAPPLE(int8_t texNum);
 
