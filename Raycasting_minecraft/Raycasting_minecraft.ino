@@ -61,13 +61,13 @@ TFT_eSPI tft = TFT_eSPI(80, 160);
 double posX = 22, posY = 12;
 double dirX = -1, dirY = 0;
 double planeX = 0, planeY = 1;
-long nowFrame = 0, oldFrame = 0, t1 = 0, t2 = 0, t3 = 0,t4=0,t5=0;
-uint16_t frameImage[screenWidth][screenHeight], ddd[screenWidth * screenHeight], mixTex[textureData / 2];
+long nowFrame = 0, oldFrame = 0, t1 = 0, t2 = 0, t3 = 0,t4=0,t5=0,t6=0;
+uint16_t frameImage[screenWidth][screenHeight], ddd[screenWidth * screenHeight], mixTex[textureData / 2],floorUsedTexture[textureData/2],ceilingUsedTexture[textureData/2];
 double fps=0;
 double targetDistance = 0;
 int8_t pitch = 0, targetMapX, targetMapY;
 uint8_t stepTemp = 0, attackActoinGroup[4] = {0, 1, 0, 2}, attackTemp = 0,jntmFrame=0,badappleFrame=0;
-
+bool texcsh=0,pitchBuffer=0;
 
 
 void DRAW_BACKGROUND();
@@ -88,27 +88,21 @@ void WEAPONHIT();
 
 void RAYCASTING();
 
+void DRAW_FLOOR_AND_CEILING();
+
+void LOOK_UP_DOWN();
+
 void DRAW_WEAPONS_TO_SCREEN(int typeOfWeapon);
 
 bool CHECK_MAP_SIDE();
 
-void PLAY_JNTM();
+void PLAY_JNTM(int8_t MapX, int8_t MapY);
 
 void PLAY_BADAPPLE(int8_t texNum);
-
-/*void PRINT_SOMETHING(){
-  if(millis()+t1>=5000){
-    t1=millis();
-    Serial.print("targetDistance: ");
-    Serial.println(targetDistance);
-    Serial.println("    ");
-  }
-  }*/
 
 
 void setup() {
   // put your setup code here, to run once:
-  //Serial.begin(15200);
   tft.init();
   tft.setRotation(0);
   tft.setSwapBytes(true);
@@ -118,7 +112,8 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  DRAW_BACKGROUND();
+  //LOOK_UP_DOWN(); //通过移动地平线的方法实现模拟仰视俯视，循环移动。需要体验可以去掉代码前注释
+  DRAW_FLOOR_AND_CEILING(); //绘制带贴图的天花板和地面
   RAYCASTING();
   DRAW_WEAPONS_TO_SCREEN(1);
   wddd();
