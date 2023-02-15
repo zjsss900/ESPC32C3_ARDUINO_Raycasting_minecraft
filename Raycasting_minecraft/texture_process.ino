@@ -16,7 +16,7 @@ void wddd() {
   int n = 0;
   for (int x = 0; x < screenWidth; x++) {
     for (int y = 0; y < screenHeight; y++) {
-      ddd[n] = frameImage[screenWidth - x][y];
+      ddd[n] = frameImage[(screenWidth-1) - x][y];
       n++;
     }
   }
