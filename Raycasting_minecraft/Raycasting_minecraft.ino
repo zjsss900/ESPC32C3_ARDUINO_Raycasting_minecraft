@@ -115,6 +115,8 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  //如果需要纯色背景就取消DRAW_BACKGROUND()的注释，然后把DRAW_FLOOR_AND_CEILING()注释掉，用纯色背景可以提高大幅帧率。
+  //DRAW_BACKGROUND(); 
   //LOOK_UP_DOWN(); //通过移动地平线的方法实现模拟仰视俯视，循环移动。需要体验可以去掉代码前注释
   DRAW_FLOOR_AND_CEILING(); //绘制带贴图的天花板和地面
   RAYCASTING();
@@ -123,5 +125,6 @@ void loop() {
   tft.pushImage(0, 0, 80, 160, ddd);
   //PRINT_SOMETHING();
 }
+
 
 
