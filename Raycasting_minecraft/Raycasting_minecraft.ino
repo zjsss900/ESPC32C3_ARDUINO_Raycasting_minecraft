@@ -23,7 +23,7 @@
 #define blockright             4        //
 #define blockc                 5        //
 
-
+//地图，使用数字序号确定贴图
 int8_t worldMap[mapWidth][mapHeight] =
 {
   {4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 7, 7, 7, 7, 7, 7, 7, 7},
@@ -70,9 +70,9 @@ uint8_t stepTemp = 0, attackActoinGroup[4] = {0, 1, 0, 2}, attackTemp = 0,jntmFr
 bool texcsh=0,pitchBuffer=0;
 
 
-void DRAW_BACKGROUND();
+void DRAW_BACKGROUND(); //绘制纯色背景
 
-void wddd();
+void wddd(); //镜像图像
 
 uint16_t CHANGE_SIDE_TEX_COLOR(uint16_t color);
 
@@ -82,23 +82,23 @@ void DO_MIX(uint8_t tex, int8_t lw);
 
 void MIX_TOW_TEX(int8_t texNum);
 
-void DRAW_TEX(int8_t texNum);
+void DRAW_TEX(int8_t texNum);  //绘制贴图的函数
 
-void WEAPONHIT();
+void WEAPONHIT();  //播放挥动武器的动画
 
-void RAYCASTING();
+void RAYCASTING(); //光线传播渲染的主函数
 
-void DRAW_FLOOR_AND_CEILING();
+void DRAW_FLOOR_AND_CEILING(); //绘制地板和天花板
 
-void LOOK_UP_DOWN();
+void LOOK_UP_DOWN();   //向上向下移动地平线，模拟视角上下移动
 
-void DRAW_WEAPONS_TO_SCREEN(int typeOfWeapon);
+void DRAW_WEAPONS_TO_SCREEN(int typeOfWeapon);   //绘制武器图层到屏幕
 
-bool CHECK_MAP_SIDE();
+bool CHECK_MAP_SIDE();  //检测地图边沿，避免挖穿地图进入后室（内存溢出）
 
-void PLAY_JNTM(int8_t MapX, int8_t MapY);
+void PLAY_JNTM(int8_t MapX, int8_t MapY); //播放坤坤
 
-void PLAY_BADAPPLE(int8_t texNum);
+void PLAY_BADAPPLE(int8_t texNum);  //播放bad apple
 
 
 void setup() {
@@ -120,3 +120,4 @@ void loop() {
   tft.pushImage(0, 0, 80, 160, ddd);
   //PRINT_SOMETHING();
 }
+
