@@ -12,8 +12,11 @@
 #define LCD_BUTTON_CENTER     4
 #define LCD_BUTTON_DOWN       9
 
+//屏幕分辨率
 #define screenWidth 160
 #define screenHeight 80
+
+//地图格子单位大小
 #define mapWidth 24
 #define mapHeight 24
 
@@ -120,4 +123,5 @@ void loop() {
   tft.pushImage(0, 0, 80, 160, ddd);
   //PRINT_SOMETHING();
 }
+
 
