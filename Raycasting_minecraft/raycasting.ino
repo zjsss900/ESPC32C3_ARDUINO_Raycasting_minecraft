@@ -1,3 +1,4 @@
+//教程来自https://lodev.org/cgtutor/raycasting.html，讲的很细，非常感谢这个资料。
 void RAYCASTING() {
   for (int x = 0; x < screenWidth; x++) {
     float cameraX = 2 * x / double(screenWidth) - 1;
@@ -237,3 +238,4 @@ void LOOK_UP_DOWN(){
     }
   }
 }
+
