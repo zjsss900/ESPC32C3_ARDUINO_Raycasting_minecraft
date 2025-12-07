@@ -43,7 +43,7 @@ void TRANSFOR_INT8_TO_INT16(uint8_t i) {
   }
 }
 
-void DO_MIX(uint8_t tex, int8_t lw) {
+void DO_MIX(uint8_t tex, int8_t lw) {  //混合贴图函数，将两张贴图（裂纹和正常）混合成一张的并存入贴图BUFFER数组中，模拟敲击后的裂纹效果。
   int n = 0, c = 0;
   uint16_t lwBuffer = 0;
   TRANSFOR_INT8_TO_INT16(tex);
@@ -85,7 +85,7 @@ void DRAW_TEX(int8_t texNum) {
   }
 }
 
-void PLAY_JNTM() {
+void PLAY_JNTM() { //模仿鸡你太美的动画序列
   int n = 0, c = 0;
   for (uint8_t a = 0; a < texWidth; a++) {
     for (uint8_t b = 0; b < texHeight; b++) {
@@ -104,7 +104,7 @@ void PLAY_JNTM() {
   }
 }
 
-void PLAY_BADAPPLE(int8_t texNum) {
+void PLAY_BADAPPLE(int8_t texNum) { //bad apple原图像由于是宽屏比例，而地图单位是正方方块，所以此函数将动画序列每一帧拆分为左右张图，分别绘制给两个贴图方块，以实现播放宽屏动画。
   int n = 0, c = 0;
   for (uint8_t a = 0; a < texWidth; a++) {
     for (uint8_t b = 0; b < texHeight; b++) {
@@ -126,3 +126,4 @@ void PLAY_BADAPPLE(int8_t texNum) {
     }
   }
 }
+
